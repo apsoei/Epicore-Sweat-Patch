@@ -6,7 +6,7 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 from matplotlib import colors
 
-patch = cv2.imread('./Pngs/patch2.png')
+patch = cv2.imread('../Pngs/patch2.png')
 patch_RGB = cv2.cvtColor(patch, cv2.COLOR_BGR2RGB)
 # plt.imshow(patch_RGB)
 # plt.show()
@@ -134,10 +134,11 @@ gray = cv2.cvtColor(patch.copy(), cv2.COLOR_BGR2GRAY)
 # Using the Canny filter to get contours
 edges = cv2.Canny(gray, 20, 30)
 # Using the Canny filter with different parameters
-edges_high_thresh = cv2.Canny(gray, 60, 120)
+# edges_high_thresh = cv2.Canny(gray, 60, 180)
+edges_high_thresh = cv2.Canny(gray, 20, 50)
 # Stacking the images to print them together for comparison
 images = np.hstack((gray, edges, edges_high_thresh))
-
+# print(edges)
 # Display the results
 cv2.imshow('gray, edge, edge high', images)
 cv2.waitKey()
